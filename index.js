@@ -4,7 +4,7 @@ app.use(express.json());
 
 app.get("/", function (req, res) {
   console.log("Requisicao GET recebida para porta URI /");
-  res.send("Seja bem-vindo à rota principal (/) !");
+  res.send("Oi Aliny, saudades de você, quando você vai me dar um abraço!?! (/) !");
 });
 
 app.post("/adicionar", function (req, res) {
@@ -17,15 +17,19 @@ app.put("/atualizar", function (req, res) {
   res.send("Seja bem-vindo à rota de atualizar (/atualizar) !");
 });
 
-app.delete("deletar", function (req, res) {
+app.delete("/deletar", function (req, res) {
   console.log("Requisicao DELETE rcebida para a porta UIR/ deletar");
   res.send("Seja bem-vindo à rota de deletar (/deletar)!");
 });
 
+app.get("/listar", function (req, res) {
+  console.log("Requisicao GET recebida para a rota URI /listar");
+  res.send("Seja bem-vindo à rota de listagem (/listar)!");
+});  
+
 //A porta é uma variável de ambiente
 const porta = process.env.PORT || 8080;
-applisten(porta, () =>
+app.listen(porta, () =>
   console.log("Servidor inicializado na porta: " + porta)
 );
-
 
